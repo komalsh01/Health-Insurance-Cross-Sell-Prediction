@@ -36,14 +36,14 @@ html{
     scroll-behavior:smooth;
 }
 
-/* Push page content down so it doesn't sit under the fixed navbar */
 .block-container{
     padding-top:6.5rem;
     padding-left:4rem;
     padding-right:4rem;
 }
 
-/* Navigation Bar
+/* Navigation Bar */
+
 .navbar{
 
     position:fixed;
@@ -53,10 +53,15 @@ html{
     width:100%;
 
     background:white;
+
     border-radius:0;
-    padding:9px 4rem;
+
+    padding:14px 4rem;
+
     border-bottom:1px solid #E2E8F0;
+
     box-shadow:0px 4px 18px rgba(15,23,42,0.08);
+
     z-index:9999;
 
 }
@@ -77,7 +82,6 @@ html{
     color:#2563EB !important;
 }
 
-/* Scroll Margin for Sections */
 #top, #model-section, #about-section, #contact-section{
     scroll-margin-top:110px;
 }
@@ -87,8 +91,11 @@ html{
 .hero-title{
 
     font-size:44px;
+
     font-weight:700;
+
     color:#1E293B;
+
     margin-bottom:10px;
 
 }
@@ -98,7 +105,9 @@ html{
 .hero-subtitle{
 
     font-size:18px;
+
     color:#64748B;
+
     line-height:1.7;
 
 }
@@ -122,7 +131,9 @@ html{
 [data-testid="stWidgetLabel"] label{
 
     color:#1E293B !important;
+
     font-size:16px !important;
+
     font-weight:600 !important;
 
 }
@@ -132,13 +143,21 @@ html{
 .stButton > button{
 
     background:#2563EB;
+
     color:white;
+
     border:none;
+
     border-radius:12px;
+
     height:55px;
+
     font-size:18px;
+
     font-weight:600;
+
     transition:0.3s;
+
     box-shadow:0px 6px 16px rgba(37,99,235,0.25);
 
 }
@@ -146,9 +165,13 @@ html{
 .stButton > button:hover{
 
     background:#1D4ED8 !important;
+
     color:white !important;
+
     border:none !important;
+
     transform:translateY(-2px);
+
     box-shadow:0px 10px 22px rgba(37,99,235,0.35);
 
 }
@@ -156,7 +179,9 @@ html{
 .stButton > button:focus{
 
     background:#1D4ED8 !important;
+
     color:white !important;
+
     border:none !important;
 
 }
@@ -164,19 +189,25 @@ html{
 .stButton > button:active{
 
     background:#1E40AF !important;
+
     color:white !important;
 
 }
 
-/* Customer Card
-   
+/* Customer Card */
+
 div[data-testid="stVerticalBlockBorderWrapper"]{
 
     background:white !important;
+
     padding:20px 35px 35px 35px !important;
+
     border-radius:20px !important;
+
     border:1px solid #E2E8F0 !important;
+
     box-shadow:0px 6px 22px rgba(15,23,42,0.08);
+
     margin-top:25px;
 
 }
@@ -187,9 +218,13 @@ div[data-testid="stVerticalBlockBorderWrapper"]{
 .stNumberInput > div > div > input{
 
     background:white !important;
+
     border:1px solid #D1D5DB !important;
+
     border-radius:12px !important;
+
     color:#1E293B !important;
+
     box-shadow:0px 3px 10px rgba(15,23,42,0.06);
 
 }
@@ -207,6 +242,7 @@ div[data-testid="stVerticalBlockBorderWrapper"]{
 .stSelectbox div[data-baseweb="select"]{
 
     background:white !important;
+
     border-radius:12px !important;
 
 }
@@ -222,6 +258,7 @@ div[data-testid="stVerticalBlockBorderWrapper"]{
 .stNumberInput input:focus{
 
     border:2px solid #2563EB !important;
+
     outline:none !important;
 
 }
@@ -438,9 +475,6 @@ Threshold : 0.25
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# Everything inside this "with" block renders INSIDE one real bordered
-# card (heading, subtitle, both columns of inputs). This is what makes
-# every input box actually sit inside the Customer Details card.
 with st.container(border=True):
 
     st.markdown("""
@@ -555,8 +589,6 @@ if predict:
 
     try:
 
-        # FIX 2: build an absolute path to the model files so loading works
-        # no matter which folder you run "streamlit run app.py" from.
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         model_path = os.path.join(BASE_DIR, "models", "random_forest_model.pkl")
         threshold_path = os.path.join(BASE_DIR, "models", "threshold.pkl")
@@ -639,14 +671,7 @@ if predict:
                 probability >= threshold
             )
 
-
-            # -----------------------------
             # Prediction Result Card
-            # (built as ONE markdown call, with no leading spaces on any
-            # line, so Streamlit's markdown parser renders it as HTML
-            # instead of a code block, and everything nests inside a
-            # single "prediction-section" card as intended)
-            # -----------------------------
 
             if prediction == 1:
                 result_box_html = (
@@ -679,10 +704,7 @@ if predict:
             f"Prediction Error: {e}"
         )
 
-# ----------------------------------------------------------------------
-# FOOTER (About + Contact — also the scroll targets for the navbar)
-# ----------------------------------------------------------------------
-
+# FOOTER 
 st.markdown("""
 <div class="app-footer">
 
@@ -699,12 +721,13 @@ customers and plan outreach more efficiently.</p>
 
 <div id="contact-section">
 <h4>Contact</h4>
-<p>Email: <a href="mailto:komalsh0105@gmail.com">komalsh0105@gmail.com</a></p>
-<p>GitHub: <a href="https://github.com/komalsh01" target="_blank">github.com/komalsh01</a></p>
+<p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+<p>GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></p>
+<p>LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></p>
 </div>
 
 <div class="footer-bottom">
-Machine Learning Project
+Built with Streamlit · Data science portfolio project
 </div>
 
 </div>
